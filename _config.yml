@@ -1,6 +1,2 @@
 theme: minima
-remote_theme: jekyll/minima
-plugins:
-  - jekyll-sitemap
-  - jekyll-remote-theme
 google_analytics: ZEBWDG4VQT
