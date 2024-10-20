@@ -13,19 +13,19 @@ ANOVA operates under the assumption that the populations being compared are norm
   - **F-ratio** = (variance between groups) / (variance within groups)
     - If the F-ratio is significantly large, it suggests that the group means differ more than would be expected by chance.
 
- ## Hypothesis in ANOVA
+## Hypothesis in ANOVA
 
  - **Null Hypothesis** : All group means are equal.
  - **Alternative Hypothesis** : At least one group mean is different.
 
- ## Types of ANOVA
+## Types of ANOVA
  1. **One-way ANOVA**: Tests for differences between the means of three or more independent groups based on one factor.
  2. **Two-way ANOVA**: Tests for interaction effects between two factors on the dependent variable.
  3. **Repeated Measures ANOVA**: Tests within-subjects effects, where the same subjects are measured multiple times over different conditions or time points.
 
- # Practical Example: One-Way ANOVA in RStudio
+# Practical Example: One-Way ANOVA in RStudio
 
- ## Case: Testing the Effect of Different Diets on Weight Loss
+## Case: Testing the Effect of Different Diets on Weight Loss
 Let’s say we have data on the weight loss of individuals across three different diet groups: A, B, and C. We want to determine whether the average weight loss differs between these diet plans.
 
 #### Code:
@@ -46,12 +46,13 @@ summary(anova_result)
 - If the **p-value** is less than 0.05, we reject the null hypothesis, indicating that at least one diet plan leads to a significantly different weight loss.
 - If the **p-value** is greater than 0.05, we fail to reject the null hypothesis, meaning that there is no significant difference between the diet plans.
 
- # Two-Way ANOVA in RStudio
+# Two-Way ANOVA in RStudio
 
- ## Case: Examining the Effect of Diet and Exercise on Weight Loss
+## Case: Examining the Effect of Diet and Exercise on Weight Loss
  Now, we want to see if there is an interaction effect between diet and exercise levels (low, medium, high) on weight loss.
 #### Code:
 ```r
+
 # Example data
 exercise_level <- factor(c(rep("low", 5), rep("medium", 5), rep("high", 5)))
 
@@ -67,6 +68,7 @@ summary(anova_result)
 ```
 - The **diet_group** and **exercise_level** main effects tell us if either factor independently affects weight loss.
 - The interaction term *(diet_group:exercise_level)* tells us whether the effect of the diet differs depending on the level of exercise.
+
 
 # Example Where ANOVA Doesn't Work
 
@@ -105,7 +107,6 @@ bartlett.test(values ~ group, data = data)
 
 - In this case, the **Bartlett’s test** will likely indicate that the variances are not equal (a significant p-value).
 - ANOVA may give misleading results because the assumption of homogeneity of variances is violated. In such cases, a **Welch’s ANOVA** or a **Kruskal-Wallis test** (non-parametric alternative) would be more appropriate.
-
 
 # Conclusion
 ANOVA is a powerful tool for comparing the means of multiple groups, but its validity depends on key assumptions such as normality and homogeneity of variances. By understanding these limitations and using alternative methods like Welch’s ANOVA when assumptions are violated, we can draw more reliable conclusions from our data.
